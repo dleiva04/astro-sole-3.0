@@ -1,0 +1,33 @@
+{
+    "header": {
+        "logo": {
+            "src": "path/to/logo.png",
+            "alt": "Logo"
+        },
+        "menu": [
+            {
+                "label": "Nueva Colección",
+                "url": "/colecciones/nueva-coleccion"
+            },
+            {
+                "label": "Promociones",
+                "url": "/colecciones/promociones"
+            },
+            {
+                "label": "Tienda",
+                "url": "/tienda",
+                "subItems": [
+                    {
+                        "label": "Blusas",
+                        "url": "/colecciones/blusas"
+                    },
+                    {
+                        "label": "Vestidos",
+                        "url": "/colecciones/vestidos"
+                    }
+                ]
+            }
+        ]
+    },
+    "footer": {}
+}

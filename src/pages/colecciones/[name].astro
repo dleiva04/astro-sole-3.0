@@ -1,0 +1,19 @@
+---
+import Products from "../../components/Products.astro";
+import Layout from "../../layouts/Layout.astro";
+import { fetchCollection } from "../../utils/fetch";
+import { CollectionProductsQuery } from "../../utils/queries";
+const { name } = Astro.params;
+
+const ip =
+	Astro.request.headers.get("x-vercel-forwarded-for") || Astro.clientAddress;
+
+const response = await fetchCollection(ip, CollectionProductsQuery, name);
+if (response.error) {
+	return Astro.redirect("/404");
+}
+---
+
+<Layout title={response.title} path={name}>
+	<Products title={response.title} products={response.products} />
+</Layout>

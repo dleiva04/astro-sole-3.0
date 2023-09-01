@@ -1,0 +1,14 @@
+{
+    "pages": [
+        {
+            "slug": "blusas",
+            "collection": "blusas",
+            "title": "Blusas"
+        },
+        {
+            "slug": "vestidos",
+            "collection": "vestidos",
+            "title": "Vestidos"
+        }
+    ]
+}
