@@ -1,6 +1,6 @@
 ---
 import "@fontsource/jost";
-import Header from "../components/Header.astro";
+import Header from "../components/Header/component.astro";
 import Footer from "../components/Footer.astro";
 import Banner from "../components/Banner.astro";
 import { ViewTransitions } from "astro:transitions";
@@ -11,7 +11,7 @@ if (title != "") {
 }
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />
@@ -33,14 +33,14 @@ if (title != "") {
 		<Header path={path} />
 		<slot />
 		<Footer />
+		<script>
+			window.va =
+				window.va ||
+				function () {
+					(window.vaq = window.vaq || []).push(arguments);
+				};
+		</script>
+		<!-- <script defer src="/_vercel/insights/script.js"></script> -->
+		<script src="../../node_modules/preline/dist/preline.js"></script>
 	</body>
-	<script>
-		window.va =
-			window.va ||
-			function () {
-				(window.vaq = window.vaq || []).push(arguments);
-			};
-	</script>
-	<!-- <script defer src="/_vercel/insights/script.js"></script> -->
-	<script src="../../node_modules/preline/dist/preline.js"></script>
 </html>

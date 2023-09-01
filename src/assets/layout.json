@@ -1,8 +1,8 @@
 {
     "header": {
         "logo": {
-            "src": "path/to/logo.png",
-            "alt": "Logo"
+            "src": "/black-logo.png",
+            "alt": "Solé"
         },
         "menu": [
             {

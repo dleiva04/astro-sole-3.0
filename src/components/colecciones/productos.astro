@@ -1,0 +1,16 @@
+---
+import Item from "./item.astro";
+const { products } = Astro.props;
+---
+
+{
+    products.map((product) => {
+        return (
+            <Item
+                id={product.node.id.split("/").slice(-1)[0]}
+                name={product.node.title}
+                price={`₡ ${product.node.variants.nodes[0].price.amount}`}
+            />
+        );
+    })
+}

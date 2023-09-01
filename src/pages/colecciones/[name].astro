@@ -1,6 +1,7 @@
 ---
-import Products from "../../components/Products.astro";
 import Layout from "../../layouts/Layout.astro";
+import Filtro from "../../components/colecciones/filtro.astro";
+import Productos from "../../components/colecciones/productos.astro";
 import { fetchCollection } from "../../utils/fetch";
 import { CollectionProductsQuery } from "../../utils/queries";
 const { name } = Astro.params;
@@ -15,5 +16,52 @@ if (response.error) {
 ---
 
 <Layout title={response.title} path={name}>
-	<Products title={response.title} products={response.products} />
+	<div class="flex flex-col gap-4 items-center justify-center my-24 md:my-28">
+		<h1 class="font-extrabold text-4xl tracking-wider uppercase">
+			{response.title}
+		</h1>
+		<p>128 products</p>
+	</div>
+	<div class="flex px-4 md:px-8">
+		<div class="w-1/2 flex flex-col justify-end items-end">
+			<select
+				id="hs-select-label"
+				class="block md:hidden border-2 py-3 px-4 pr-9 w-full md:w-1/3 border-gray-200 text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 my-6 mr-2"
+			>
+				<option selected>Ordenar</option>
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+			</select>
+		</div>
+		<div class="w-1/2 flex flex-col justify-end items-end">
+			<select
+				id="hs-select-label"
+				class="border-2 py-3 px-4 pr-9 block w-full md:w-1/3 border-gray-200 text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 my-6 ml-2"
+			>
+				<option selected>Ordenar</option>
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+			</select>
+		</div>
+	</div>
+	<div class="flex justify-center px-4 md:px-8 pb-16">
+		<div class="hidden md:flex w-1/5">
+			<div class="w-full">
+				<div class="sticky top-24 z-50 pl-4 pr-10">
+					<h2 class="text-xl font-bold underline">Filtros</h2>
+					<Filtro titulo={`Talla`} checkbox={true} />
+					<Filtro titulo={`Colores`} checkbox={true} />
+					<Filtro titulo={`Materiales`} checkbox={true} />
+					<Filtro titulo={`Precio`} checkbox={true} />
+				</div>
+			</div>
+		</div>
+		<div class="w-full md:w-4/5 z-0">
+			<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+				<Productos products={response.products} />
+			</div>
+		</div>
+	</div>
 </Layout>

@@ -1,0 +1,24 @@
+{
+    "pages": [
+        {
+            "slug": "nueva-coleccion",
+            "collection": "nueva-coleccion",
+            "title": "Nueva Colección"
+        },
+        {
+            "slug": "promociones",
+            "collection": "promociones",
+            "title": "Promociones"
+        },
+        {
+            "slug": "blusas",
+            "collection": "blusas",
+            "title": "Blusas"
+        },
+        {
+            "slug": "vestidos",
+            "collection": "vestidos",
+            "title": "Vestidos"
+        }
+    ]
+}

@@ -1,4 +1,4 @@
-import { pages } from '../../public/content/pages.json';
+import { pages } from '../assets/pages.json';
 import { shopifyPublicStorefrontRequest } from './shopifyRequest';
 
 export async function fetchCollection(ip, graphql_query, slug) {
