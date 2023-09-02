@@ -1,46 +1,47 @@
 ---
 import "@fontsource/jost";
-import Header from "../components/header/component.astro";
+// import Header from "../components/header/component.astro";
+import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Banner from "../components/Banner.astro";
 import { ViewTransitions } from "astro:transitions";
 const { title, path } = Astro.props;
 let layout_title = "Solé";
 if (title != "") {
-	layout_title = `${title} | Solé `;
+  layout_title = `${title} | Solé `;
 }
 ---
 
 <!doctype html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link
-			rel="icon"
-			type="image/png"
-			href={`${import.meta.env.BASE_URL}favicon.png`}
-		/>
-		<title>{layout_title}</title>
-		<ViewTransitions />
-		<style is:global>
-			@import "../styles/global.css";
-		</style>
-	</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link
+      rel="icon"
+      type="image/png"
+      href={`${import.meta.env.BASE_URL}favicon.png`}
+    />
+    <title>{layout_title}</title>
+    <ViewTransitions />
+    <style is:global>
+      @import "../styles/global.css";
+    </style>
+  </head>
 
-	<body>
-		<Banner />
-		<Header path={path} />
-		<slot />
-		<Footer />
-		<script>
-			window.va =
-				window.va ||
-				function () {
-					(window.vaq = window.vaq || []).push(arguments);
-				};
-		</script>
-		<!-- <script defer src="/_vercel/insights/script.js"></script> -->
-		<script src="../../node_modules/preline/dist/preline.js"></script>
-	</body>
+  <body>
+    <Banner />
+    <Header path={path} />
+    <slot />
+    <Footer />
+    <script>
+      window.va =
+        window.va ||
+        function () {
+          (window.vaq = window.vaq || []).push(arguments);
+        };
+    </script>
+    <!-- <script defer src="/_vercel/insights/script.js"></script> -->
+    <script src="../../node_modules/preline/dist/preline.js"></script>
+  </body>
 </html>
