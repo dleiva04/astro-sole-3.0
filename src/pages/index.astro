@@ -3,14 +3,14 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title={"Inicio"}>
-  <section class="w-[90%] mx-auto my-12 md:mb-24">
+  <section class="w-[90%] mx-auto my-6 md:mb-24">
     <picture>
       <source media="(min-width:768px)" srcset="/desktop.png" />
       <img src="/phone.png" class="w-full" />
     </picture>
   </section>
 
-  <section class="w-[90%] md:w-[80%] mx-auto flex flex-col my-12 md:my-24">
+  <section class="w-[90%] md:w-[80%] mx-auto flex flex-col mt-12 mb-6 md:my-24">
     <h2 class="mb-8 text-2xl font-extrabold tracking-wider uppercase">
       Categorias
     </h2>
@@ -43,9 +43,11 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </section>
 
-  <section class="mt-12 md:mt-24 py-8">
+  <div class="bg-[#f8f7f5] h-1 md:hidden"></div>
+
+  <section class="mt-12 mb-6 md:mt-24">
     <div
-      class="w-[90%] md:w-[80%] mx-auto flex gap-10 flex-wrap md:flex-nowrap"
+      class="w-[90%] md:w-[80%] mx-auto flex md:gap-10 flex-wrap md:flex-nowrap"
     >
       <div class="w-full md:w-3/4 order-2 md:order-1">
         <picture>
@@ -75,7 +77,36 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </section>
 
-  <section class="py-8">
+  <section class="bg-[#f8f7f5] w-full mt-12 mb-6 md:my-24">
+    <div
+      class="w-[90%] md:w-[50%] mx-auto flex flex-col items-center gap-5 py-20"
+    >
+      <h4 class="text-2xl font-extrabold tracking-wider uppercase text-center">
+        ¡No Pierdas la Oportunidad!
+      </h4>
+      <p class="text-md text-center tracking-wider mb-8">
+        Suscríbete a nuestro boletín para recibir promociones limitadas, avances
+        de lanzamientos y contenido exclusivo. Sé la primera en conocer las
+        novedades de la moda femenina. ¡Tu guardarropa te lo agradecerá!
+      </p>
+      <div class="flex flex-col md:flex-row w-[90%] md:w-[60%] gap-5">
+        <input
+          type="email"
+          name=""
+          placeholder="Ingresa tu correo electronico"
+          class="border-2 border-t-transparent border-x-transparent border-black w-full h-12 pl-2"
+        />
+        <button
+          type="button"
+          class="bg-black text-white px-6 border-2 border-black hover:bg-white hover:text-black h-12"
+          >Suscribirme</button
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- Otras pruebas -->
+  <!-- <section class="py-8">
     <div
       class="w-[90%] md:w-[80%] mx-auto flex gap-10 flex-wrap md:flex-nowrap"
     >
@@ -109,9 +140,9 @@ import Layout from "../layouts/Layout.astro";
         </picture>
       </div>
     </div>
-  </section>
+  </section> -->
 
-  <section class="mb-12 mb:mt-12 py-8">
+  <!-- <section class="mb-12 mb:mt-12 py-8">
     <div
       class="w-[90%] md:w-[80%] mx-auto flex gap-10 flex-wrap md:flex-nowrap"
     >
@@ -139,5 +170,5 @@ import Layout from "../layouts/Layout.astro";
         </picture>
       </div>
     </div>
-  </section>
+  </section> -->
 </Layout>
