@@ -3,12 +3,141 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title={"Inicio"}>
-  <section class="w-[90%] mx-auto py-10 rounded-md">
+  <section class="w-[90%] mx-auto my-12 md:mb-24">
     <picture>
       <source media="(min-width:768px)" srcset="/desktop.png" />
       <img src="/phone.png" class="w-full" />
     </picture>
   </section>
 
+  <section class="w-[90%] md:w-[80%] mx-auto flex flex-col my-12 md:my-24">
+    <h2 class="mb-8 text-2xl font-extrabold tracking-wider uppercase">
+      Categorias
+    </h2>
+    <div class="w-full flex md:gap-8 flex-wrap md:flex-nowrap">
+      <div class="w-1/2 md:w-1/4 hover:text-gray-500 p-1">
+        <a href="#" class="flex flex-col items-center justify-center">
+          <img src="/categoria.png" alt="Categoria 1" />
+          <p class="mt-4 font-bold text-lg underline">Ver Blusas</p>
+        </a>
+      </div>
+      <div class="w-1/2 md:w-1/4 hover:text-gray-500 p-1">
+        <a href="#" class="flex flex-col items-center justify-center">
+          <img src="/categoria.png" alt="Categoria 1" />
+          <p class="mt-4 font-bold text-lg underline">Ver Blusas</p>
+        </a>
+      </div>
 
+      <div class="w-1/2 md:w-1/4 hover:text-gray-500 p-1">
+        <a href="#" class="flex flex-col items-center justify-center">
+          <img src="/categoria.png" alt="Categoria 1" />
+          <p class="mt-4 font-bold text-lg underline">Ver Blusas</p>
+        </a>
+      </div>
+      <div class="w-1/2 md:w-1/4 hover:text-gray-500 p-1">
+        <a href="#" class="flex flex-col items-center justify-center">
+          <img src="/categoria.png" alt="Categoria 1" />
+          <p class="mt-4 font-bold text-lg underline">Ver Blusas</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-12 md:mt-24 py-8">
+    <div
+      class="w-[90%] md:w-[80%] mx-auto flex gap-10 flex-wrap md:flex-nowrap"
+    >
+      <div class="w-full md:w-3/4 order-2 md:order-1">
+        <picture>
+          <source media="(min-width:768px)" srcset="/desktop.png" />
+          <img src="/phone.png" class="w-full" />
+        </picture>
+      </div>
+      <div
+        class="w-full md:w-1/4 order-1 md:order-2 flex flex-col items-center justify-center"
+      >
+        <h3 class="text-2xl mb-8 font-extrabold tracking-wider uppercase">
+          Nueva Colección
+        </h3>
+        <p class="text-md text-justify tracking-wider">
+          Sumérgete en nuestra última creación. Desde prendas de moda de
+          vanguardia hasta accesorios únicos, nuestra nueva colección es una oda
+          a la elegancia y la innovación. Explora las piezas que elevarán tu
+          estilo y haz clic abajo para descubrir todas las novedades. ¡No te lo
+          pierdas!
+        </p>
+        <button
+          class="bg-white border w-full hover:border-gray-500 text-black font-semibold px-16 py-2 rounded my-8"
+        >
+          Button
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8">
+    <div
+      class="w-[90%] md:w-[80%] mx-auto flex gap-10 flex-wrap md:flex-nowrap"
+    >
+      <div class="w-full md:w-2/5">
+        <picture>
+          <source media="(min-width:768px)" srcset="/phone.png" />
+          <img src="/phone.png" class="w-full" />
+        </picture>
+      </div>
+      <div class="w-full md:w-1/5 flex flex-col items-center justify-center">
+        <h3 class="text-2xl mb-8 font-extrabold tracking-wider uppercase">
+          Nueva Colección
+        </h3>
+        <p class="text-md text-justify tracking-wider">
+          Sumérgete en nuestra última creación. Desde prendas de moda de
+          vanguardia hasta accesorios únicos, nuestra nueva colección es una oda
+          a la elegancia y la innovación. Explora las piezas que elevarán tu
+          estilo y haz clic abajo para descubrir todas las novedades. ¡No te lo
+          pierdas!
+        </p>
+        <button
+          class="bg-white border w-full hover:border-gray-500 text-black font-semibold px-16 py-2 rounded my-8 text-center"
+        >
+          Button
+        </button>
+      </div>
+      <div class="w-full md:w-2/5">
+        <picture>
+          <source media="(min-width:768px)" srcset="/phone.png" />
+          <img src="/phone.png" class="w-full" />
+        </picture>
+      </div>
+    </div>
+  </section>
+
+  <section class="mb-12 mb:mt-12 py-8">
+    <div
+      class="w-[90%] md:w-[80%] mx-auto flex gap-10 flex-wrap md:flex-nowrap"
+    >
+      <div class="w-full md:w-1/4 flex flex-col items-center justify-center">
+        <h3 class="text-2xl mb-8 font-extrabold tracking-wider uppercase">
+          Nueva Colección
+        </h3>
+        <p class="text-md text-justify tracking-wider">
+          Sumérgete en nuestra última creación. Desde prendas de moda de
+          vanguardia hasta accesorios únicos, nuestra nueva colección es una oda
+          a la elegancia y la innovación. Explora las piezas que elevarán tu
+          estilo y haz clic abajo para descubrir todas las novedades. ¡No te lo
+          pierdas!
+        </p>
+        <button
+          class="bg-white border w-full hover:border-gray-500 text-black font-semibold px-16 py-2 rounded my-8"
+        >
+          Button
+        </button>
+      </div>
+      <div class="w-full md:w-3/4">
+        <picture>
+          <source media="(min-width:768px)" srcset="/desktop.png" />
+          <img src="/phone.png" class="w-full" />
+        </picture>
+      </div>
+    </div>
+  </section>
 </Layout>
