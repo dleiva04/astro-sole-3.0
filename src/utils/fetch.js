@@ -38,8 +38,24 @@ export async function fetchProduct(ip, graphql_query, product_id) {
             }
         );
         const { data } = await query.json();
-        console.log(data)
         return data.product;
+    } catch (error) {
+        return { "error": error };
+    }
+}
+
+export async function fetchRecommendations(ip, graphql_query, product_id) {
+    try {
+        const query = await shopifyPublicStorefrontRequest(
+            ip,
+            graphql_query,
+            {
+                id: `gid://shopify/Product/${product_id}`,
+                intent: "RELATED"
+            }
+        );
+        const { data } = await query.json();
+        return data.productRecommendations;
     } catch (error) {
         return { "error": error };
     }

@@ -1,15 +1,19 @@
 ---
 import Item from "./item.astro";
-const { products } = Astro.props;
+const { products, isRecommendation } = Astro.props;
 ---
 
 {
     products.map((product) => {
+        if (product.node != undefined) {
+            product = product.node;
+        }
         return (
             <Item
-                id={product.node.id.split("/").slice(-1)[0]}
-                name={product.node.title}
-                price={`₡ ${product.node.variants.nodes[0].price.amount}`}
+                id={product.id.split("/").slice(-1)[0]}
+                name={product.title}
+                price={`₡ ${product.variants.nodes[0].price.amount}`}
+                isRecommendation={isRecommendation}
             />
         );
     })

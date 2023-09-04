@@ -1,17 +1,19 @@
 ---
+import Productos from "../../components/colecciones/productos.astro";
 import Layout from "../../layouts/Layout.astro";
-import { fetchProduct } from "../../utils/fetch";
-import { ProductById } from "../../utils/queries";
+import { fetchProduct, fetchRecommendations } from "../../utils/fetch";
+import { ProductById, ProductRecommendations } from "../../utils/queries";
 const { id } = Astro.params;
 
 const ip =
 	Astro.request.headers.get("x-vercel-forwarded-for") || Astro.clientAddress;
 
-const response = await fetchProduct(ip, ProductById, id);
-console.log(response);
-if (response.error) {
-	return Astro.redirect("/404");
-}
+const product = await fetchProduct(ip, ProductById, id);
+const recommendations = await fetchRecommendations(
+	ip,
+	ProductRecommendations,
+	id,
+);
 ---
 
 <Layout title={"Solé"}>
@@ -64,7 +66,7 @@ if (response.error) {
 				class="text-sm font-semibold text-gray-800 truncate dark:text-gray-200"
 				aria-current="page"
 			>
-				Item
+				{product.title}
 			</li>
 		</ol>
 		<div
@@ -159,8 +161,10 @@ if (response.error) {
 						Item
 					</li>
 				</ol>
-				<h1 class="font-extrabold text-4xl tracking-wider my-6">
-					Lorem ipsum
+				<h1
+					class="font-extrabold text-4xl tracking-wider my-6 text-center md:text-left"
+				>
+					{product.title}
 				</h1>
 				<div class="flex gap-4">
 					<span class="text-lg line-through text-gray-400"
@@ -172,7 +176,7 @@ if (response.error) {
 						>-15%</span
 					>
 				</div>
-				<div class="my-4 md:mt-12 md:mb-4">
+				<div class="my-4 md:mt-12 md:mb-4 text-justify">
 					<p>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit.
 						Reprehenderit vitae modi voluptate, eveniet natus ex
@@ -213,22 +217,8 @@ if (response.error) {
 						</li>
 					</ul>
 				</div>
-				<div class="w-full flex flex-col gap-y-4 my-8">
-					<button
-						type="button"
-						class="w-full md:w-1/2 py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800"
-					>
-						<!-- <div
-                        class="animate-spin inline-block w-6 h-6 border-[3px] border-current border-t-transparent text-blue-600 rounded-full"
-                        role="status"
-                        aria-label="loading"
-                    >
-                        <span class="sr-only">Loading...</span>
-                    </div> -->
-						Agregar al carrito
-					</button>
-				</div>
-				<div class="hs-accordion-group w-full md:w-4/5">
+
+				<div class="hs-accordion-group w-full md:w-4/5 my-4">
 					<div
 						class="hs-accordion"
 						id="hs-basic-with-title-and-arrow-stretched-heading-two"
@@ -274,10 +264,11 @@ if (response.error) {
 						>
 							<p class="text-gray-800 dark:text-gray-200">
 								<em>This is the third item's accordion body.</em
-								> It is hidden by default, until the collapse plugin
-								adds the appropriate classes that we use to style
-								each element. These classes control the overall appearance,
-								as well as the showing and hiding via CSS transitions.
+								> It is hidden by default, until the collapse
+								plugin adds the appropriate classes that we use
+								to style each element. These classes control the
+								overall appearance, as well as the showing and
+								hiding via CSS transitions.
 							</p>
 						</div>
 					</div>
@@ -327,18 +318,38 @@ if (response.error) {
 						>
 							<p class="text-gray-800 dark:text-gray-200">
 								<em>This is the third item's accordion body.</em
-								> It is hidden by default, until the collapse plugin
-								adds the appropriate classes that we use to style
-								each element. These classes control the overall appearance,
-								as well as the showing and hiding via CSS transitions.
+								> It is hidden by default, until the collapse
+								plugin adds the appropriate classes that we use
+								to style each element. These classes control the
+								overall appearance, as well as the showing and
+								hiding via CSS transitions.
 							</p>
 						</div>
 					</div>
 				</div>
+				<div class="w-full flex flex-col gap-y-4 my-2">
+					<button
+						type="button"
+						class="w-full md:w-1/2 py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800"
+					>
+						<!-- <div
+                        class="animate-spin inline-block w-6 h-6 border-[3px] border-current border-t-transparent text-blue-600 rounded-full"
+                        role="status"
+                        aria-label="loading"
+                    >
+                        <span class="sr-only">Loading...</span>
+                    </div> -->
+
+						 Agregar al carrito
+					</button>
+				</div>
 			</div>
 		</div>
 	</div>
-	<div class="flex flex-row gap-4">
-		<div class="max-h-28 w-full"></div>
+
+	<div
+		class="grid grid-flow-col auto-cols-max gap-6 p-4 md:p-16 overflow-x-scroll"
+	>
+		<Productos products={recommendations} isRecommendation={true} />
 	</div>
 </Layout>

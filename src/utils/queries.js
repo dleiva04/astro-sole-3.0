@@ -223,4 +223,13 @@ mutation customerAccessTokenCreate($input: CustomerAccessTokenCreateInput!) {
 }
 `;
 
+export const ProductRecommendations = `#graphql
+query getComplementaryProductRecommendations($id: ID!, $intent: ProductRecommendationIntent!) {
+  productRecommendations(productId: $id, intent: $intent) {
+    ...productFragment
+  }
+}
+${PRODUCT_FRAGMENT}
+`;
+
 
