@@ -1,24 +1,23 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Filtro from "../../components/colecciones/filtro.astro";
-import Productos from "../../components/colecciones/productos.astro";
-import { fetchCollection } from "../../utils/fetch";
-import { CollectionProductsQuery } from "../../utils/queries";
+import CollectionProducts from "../../components/CollectionProducts.jsx";
 const { name } = Astro.params;
+import { pages } from "../../assets/pages.json";
 
-const ip =
-	Astro.request.headers.get("x-vercel-forwarded-for") || Astro.clientAddress;
-
-const response = await fetchCollection(ip, CollectionProductsQuery, name);
-if (response.error) {
-	return Astro.redirect("/404");
-}
+let coleccion = "";
+let page_title = "";
+pages.map((page) => {
+	if (page.slug == name) {
+		coleccion = page.collection;
+		page_title = page.title;
+	}
+});
 ---
 
-<Layout title={response.title} path={name}>
+<Layout title={page_title} path={name}>
 	<div class="flex flex-col gap-4 items-center justify-center my-24 md:my-28">
 		<h1 class="font-extrabold text-4xl tracking-wider uppercase">
-			{response.title}
+			{page_title}
 		</h1>
 		<p>128 products</p>
 	</div>
@@ -46,22 +45,5 @@ if (response.error) {
 			</select>
 		</div>
 	</div>
-	<div class="flex justify-center px-4 md:px-8 pb-16">
-		<div class="hidden md:flex w-1/5">
-			<div class="w-full">
-				<div class="sticky top-24 z-50 pl-4 pr-10">
-					<h2 class="text-xl font-bold underline">Filtros</h2>
-					<Filtro titulo={`Talla`} checkbox={true} />
-					<Filtro titulo={`Colores`} checkbox={true} />
-					<Filtro titulo={`Materiales`} checkbox={true} />
-					<Filtro titulo={`Precio`} checkbox={true} />
-				</div>
-			</div>
-		</div>
-		<div class="w-full md:w-4/5 z-0">
-			<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-				<Productos products={response.products} />
-			</div>
-		</div>
-	</div>
+	<CollectionProducts collection={coleccion} client:load />
 </Layout>
