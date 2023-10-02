@@ -1,4 +1,3 @@
-import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
 import request, { gql } from 'graphql-request'
 import { CollectionProductsQuery } from '../utils/queries.js'
 import { config } from '../utils/config.js'

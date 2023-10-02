@@ -2,27 +2,27 @@
     "pages": [
         {
             "slug": "nueva-coleccion",
-            "collection": "nueva-coleccion",
+            "collection_id": "458245439773",
             "title": "Nueva Colección"
         },
         {
             "slug": "promociones",
-            "collection": "promociones",
+            "collection_id": "458246521117",
             "title": "Promociones"
         },
         {
             "slug": "blusas",
-            "collection": "blusas",
+            "collection_id": "458631840029",
             "title": "Blusas"
         },
         {
             "slug": "vestidos",
-            "collection": "vestidos",
+            "collection_id": "458879238429",
             "title": "Vestidos"
         },
         {
             "slug": "abrigos",
-            "collection": "abrigos",
+            "collection_id": "461735624989",
             "title": "Abrigos"
         }
     ]

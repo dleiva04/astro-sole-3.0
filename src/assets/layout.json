@@ -1,4 +1,7 @@
 {
+    "banner": {
+        "title": "Promoción Disponible"
+    },
     "header": {
         "logo": {
             "src": "/black-logo.png",
@@ -33,5 +36,10 @@
             }
         ]
     },
-    "footer": {}
+    "footer": {
+        "logo": {
+            "src": "/black-logo.png",
+            "alt": "Solé"
+        }
+    }
 }

@@ -1,18 +1,20 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import CollectionProducts from "../../components/CollectionProducts.jsx";
+// import ProductsList from "../../components/ProductsList.jsx";
 const { name } = Astro.params;
 import { pages } from "../../assets/pages.json";
 import Filters from "../../components/Filters";
+import ProductsCounter from "../../components/ProductsCounter";
 
-let coleccion = "";
+let collection_id = "";
 let page_title = "";
 pages.map((page) => {
   if (page.slug == name) {
-    coleccion = page.collection;
+    collection_id = page.collection_id;
     page_title = page.title;
   }
 });
+console.log(collection_id);
 ---
 
 <Layout title={page_title} path={name}>
@@ -20,7 +22,7 @@ pages.map((page) => {
     <h1 class="font-extrabold text-4xl tracking-wider uppercase">
       {page_title}
     </h1>
-    <p>128 products</p>
+    <ProductsCounter collection_id={collection_id} client:load/>
   </div>
   <div class="flex px-4 md:px-8">
     <div class="w-1/2 flex flex-col justify-end items-end">
@@ -31,7 +33,7 @@ pages.map((page) => {
     </div>
     <div class="w-1/2 flex flex-col justify-end items-end"></div>
   </div>
-  <CollectionProducts collection={coleccion} client:load />
+  
 
   <div
     id="filters-canvas"

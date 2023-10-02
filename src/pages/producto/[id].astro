@@ -1,26 +1,15 @@
 ---
-import Productos from "../../components/colecciones/productos.astro";
 import Layout from "../../layouts/Layout.astro";
-import { fetchProduct, fetchRecommendations } from "../../utils/fetch";
-import { ProductById, ProductRecommendations } from "../../utils/queries";
 const { id } = Astro.params;
 
 const ip =
 	Astro.request.headers.get("x-vercel-forwarded-for") || Astro.clientAddress;
-
-const product = await fetchProduct(ip, ProductById, id);
-const recommendations = await fetchRecommendations(
-	ip,
-	ProductRecommendations,
-	id,
-);
 ---
 
 <Layout title={"Solé"}>
-	
 	<div
 		class="grid grid-flow-col auto-cols-max gap-6 p-4 md:p-16 overflow-x-scroll"
 	>
-		<Productos products={recommendations} isRecommendation={true} />
+		<!-- <Productos products={recommendations} isRecommendation={true} /> -->
 	</div>
 </Layout>
